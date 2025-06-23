@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Tour Du Lịch</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-logo">
+                    <i class="fas fa-compass"></i>
+                    Tour Manager
+                </h1>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#tours" class="nav-link">Danh Sách Tour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#favorites" class="nav-link">Tour Yêu Thích</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#recommendations" class="nav-link">Gợi Ý Tour</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Tour List Section -->
+        <section id="tours" class="section">
+            <div class="container">
+                <h2>Danh Sách Tour Du Lịch</h2>
+                <div class="search-filter">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm tour...">
+                    <select id="locationFilter">
+                        <option value="">Tất cả địa điểm</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Nha Trang">Nha Trang</option>
+                        <option value="Phú Quốc">Phú Quốc</option>
+                    </select>
+                    <select id="priceFilter">
+                        <option value="">Tất cả giá</option>
+                        <option value="0-2000000">Dưới 2 triệu</option>
+                        <option value="2000000-5000000">2-5 triệu</option>
+                        <option value="5000000-10000000">5-10 triệu</option>
+                        <option value="10000000-999999999">Trên 10 triệu</option>
+                    </select>
+                </div>
+                <div id="tourList" class="tour-grid"></div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="section">
+            <div class="container">
+                <h2>Tour Yêu Thích</h2>
+                <div id="favoritesList" class="tour-grid">
+                    <p class="empty-message">Bạn chưa có tour yêu thích nào. Hãy thêm tour vào danh sách yêu thích!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="section">
+            <div class="container">
+                <h2>Gợi Ý Tour Dành Cho Bạn</h2>
+                <div class="recommendation-controls">
+                    <button id="refreshRecommendations" class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i>
+                        Làm mới gợi ý
+                    </button>
+                </div>
+                <div id="recommendationsList" class="tour-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tour Detail Modal -->
+    <div id="tourModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
